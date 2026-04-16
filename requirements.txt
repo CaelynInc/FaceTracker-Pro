@@ -1,0 +1,9 @@
+termcolor
+opencv-python
+selenium
+face_recognition
+WeasyPrint
+requests-html
+beautifulsoup4
+html5lib
+Pillow
