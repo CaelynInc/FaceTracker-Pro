@@ -242,4 +242,3 @@ See the [LICENSE](LICENSE) file for details.
 ⭐ If you found this project useful, consider giving it a star! ⭐
 
 </div>
-```
