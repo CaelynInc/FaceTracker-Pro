@@ -1,3 +1,4 @@
+
 # 🔍 FaceTracker Pro
 
 <div align="center">
@@ -15,50 +16,61 @@
                               ██╔═══╝ ██╔══██╗██║   ██║
                               ██║     ██║  ██║╚██████╔╝
                               ╚═╝     ╚═╝  ╚═╝ ╚═════╝ 
-```
+````
 
 ![Python 3.6+](https://img.shields.io/badge/Python-3.6%2B-blue.svg)
 ![OS Linux](https://img.shields.io/badge/Supported%20OS-Linux-yellow.svg)
 ![License MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Version 2.0](https://img.shields.io/badge/Version-2.0-red.svg)
 
-**أداة متقدمة للبحث عن حسابات المستخدمين في وسائل التواصل الاجتماعي عن طريق صورة الشخص أو اسمه**
-
-[English](#english) | [العربية](#العربية)
+**Advanced OSINT tool for discovering social media accounts using facial recognition, reverse image search, and name-based lookups.**
 
 </div>
 
 ---
 
-## العربية
+## 📋 Overview
 
-### 📋 نظرة عامة
+**FaceTracker Pro** is an advanced OSINT (Open Source Intelligence) tool designed to help identify and locate social media profiles using facial recognition technology and reverse image search techniques.
 
-**FaceTracker Pro** هي أداة OSINT (استخبارات المصادر المفتوحة) متقدمة تستخدم تقنيات التعرف على الوجوه والبحث العكسي عن الصور للعثور على حسابات الأشخاص في منصات التواصل الاجتماعي.
+The tool can search across multiple platforms using either:
 
-### ✨ المميزات
+* A reference image of a person
+* A person's name
+* Reverse image search integrations
 
-- 🔎 **البحث بالصورة**: رفع صورة شخص والبحث عن حساباته في السوشال ميديا
-- 👤 **البحث بالاسم**: إدخال اسم الشخص للبحث عن حساباته
-- 📸 **Instagram**: البحث والتحقق من حسابات انستقرام
-- 📘 **Facebook**: البحث في حسابات فيسبوك ومطابقة الوجوه
-- 🐦 **Twitter/X**: البحث في حسابات تويتر
-- 🎥 **YouTube**: البحث في قنوات يوتيوب
-- 🔄 **البحث العكسي**: استخدام Google Reverse Image Search
-- 🧠 **التعرف على الوجوه**: مطابقة ذكية للوجوه باستخدام face_recognition
-- 📊 **تقارير احترافية**: إنشاء تقارير PDF و JSON بالنتائج
-- 🐳 **Docker Support**: دعم كامل لـ Docker
+It also supports automated face matching, profile validation, and professional report generation.
 
-### 🛠️ المتطلبات
+---
 
-- Python 3.6+
-- Linux (Ubuntu/Debian/Arch)
-- Firefox أو Chrome WebDriver
-- اتصال بالإنترنت
+## ✨ Features
 
-### 📦 التثبيت
+* 🔎 **Image Search** — Upload a person's photo to search for matching social media accounts
+* 👤 **Name Search** — Search profiles by entering a person's name
+* 📸 **Instagram Support** — Search and validate Instagram profiles
+* 📘 **Facebook Support** — Search Facebook accounts with face matching
+* 🐦 **Twitter/X Support** — Search Twitter/X accounts
+* 🎥 **YouTube Support** — Search YouTube channels
+* 🔄 **Reverse Image Search** — Google Reverse Image Search integration
+* 🧠 **Face Recognition** — Intelligent face matching using the `face_recognition` library
+* 📊 **Professional Reports** — Export results as PDF or JSON
+* 🐳 **Docker Support** — Full Docker compatibility
 
-#### الطريقة السريعة
+---
+
+## 🛠️ Requirements
+
+* Python 3.6+
+* Linux (Ubuntu/Debian/Arch recommended)
+* Firefox or Chrome WebDriver
+* Internet connection
+
+---
+
+## 📦 Installation
+
+### Quick Installation
+
 ```bash
 git clone https://github.com/waleedshamhan2050-sys/FaceTracker-Pro.git
 cd FaceTracker-Pro
@@ -66,177 +78,168 @@ chmod +x install.sh
 ./install.sh
 ```
 
-#### التثبيت اليدوي
+### Manual Installation
+
 ```bash
 git clone https://github.com/waleedshamhan2050-sys/FaceTracker-Pro.git
 cd FaceTracker-Pro
 pip3 install -r requirements.txt
 ```
 
-#### باستخدام Docker
+### Docker Installation
+
 ```bash
 docker build -t facetracker-pro .
 docker run -it facetracker-pro
 ```
 
-### ⚙️ الإعداد
+---
 
-1. **إعداد WebDriver**: حمّل [GeckoDriver](https://github.com/mozilla/geckodriver/releases) أو [ChromeDriver](https://chromedriver.chromium.org/)
-2. **تعديل الإعدادات**: عدّل ملف `config.json` حسب احتياجاتك
-3. **إضافة الصور**: ضع صور الشخص المطلوب في مجلد `known/`
+## ⚙️ Configuration
 
-### 🚀 طريقة الاستخدام
+### WebDriver Setup
 
-#### البحث الأساسي
+Download and install one of the following:
+
+* GeckoDriver for Firefox
+* ChromeDriver for Google Chrome
+
+### Edit Configuration
+
+Modify the `config.json` file to customize:
+
+* Search depth
+* Request delays
+* Face recognition sensitivity
+* WebDriver settings
+* Platform-specific behavior
+
+### Add Reference Images
+
+Place reference images inside the `known/` directory.
+
+---
+
+## 🚀 Usage
+
+### Basic Search
+
 ```bash
 python3 facetracker.py
 ```
 
-#### تخطي بحث فيسبوك
+### Skip Facebook Search
+
 ```bash
 python3 facetracker.py --skipfb
 ```
 
-#### إنشاء تقرير JSON
+### Generate JSON Report
+
 ```bash
 python3 facetracker.py --json report.json
 ```
 
-#### وضع Docker
+### Docker Mode
+
 ```bash
-python3 facetracker.py --docker --name "اسم الشخص"
+python3 facetracker.py --docker --name "Person Name"
 ```
 
-#### استخدام قائمة روابط فيسبوك
+### Use a Facebook URL List
+
 ```bash
 python3 facetracker.py --skipfb --facebookList urls.txt
 ```
 
-### 📁 هيكل المشروع
+---
 
-```
+## ⚙️ Configuration Reference
+
+| Setting                       | Description                         | Default   |
+| ----------------------------- | ----------------------------------- | --------- |
+| `SLEEP_DELAY`                 | Delay between requests (seconds)    | `5`       |
+| `GOOGLE_IMG_PAGES`            | Number of Google search pages       | `3`       |
+| `JITTERS`                     | Face recognition accuracy level     | `10`      |
+| `INSTA_VALIDATION_MAX_IMAGES` | Maximum Instagram validation images | `12`      |
+| `WEBDRIVER.ENGINE`            | Browser engine                      | `firefox` |
+
+---
+
+## 📁 Project Structure
+
+```text
 FaceTracker-Pro/
-├── facetracker.py          # البرنامج الرئيسي
-├── face_recog.py           # محرك التعرف على الوجوه
-├── config.json             # ملف الإعدادات
-├── requirements.txt        # المكتبات المطلوبة
-├── install.sh              # سكربت التثبيت التلقائي
-├── dockerfile              # ملف Docker
-├── grabber/                # وحدات جمع البيانات
-│   ├── facebook.py         # جامع بيانات فيسبوك
-│   ├── google.py           # البحث العكسي عبر قوقل
-│   ├── instagram.py        # جامع بيانات انستقرام
-│   └── imageraider.py      # البحث العكسي عبر ImageRaider
-├── utils/                  # أدوات مساعدة
-│   ├── config.py           # إدارة الإعدادات
-│   └── console.py          # واجهة سطر الأوامر
-├── report/                 # نظام التقارير
-│   ├── report.py           # مولد التقارير
-│   └── template.html       # قالب التقرير
-├── known/                  # مجلد الصور المرجعية
-└── Example.pdf             # مثال على التقرير
+├── facetracker.py          # Main application
+├── face_recog.py           # Face recognition engine
+├── config.json             # Configuration file
+├── requirements.txt        # Python dependencies
+├── install.sh              # Automatic installation script
+├── dockerfile              # Docker configuration
+├── grabber/                # Data collection modules
+│   ├── facebook.py         # Facebook data collector
+│   ├── google.py           # Google reverse image search
+│   ├── instagram.py        # Instagram data collector
+│   └── imageraider.py      # ImageRaider reverse search
+├── utils/                  # Utility modules
+│   ├── config.py           # Configuration manager
+│   └── console.py          # CLI interface
+├── report/                 # Reporting system
+│   ├── report.py           # Report generator
+│   └── template.html       # Report template
+├── known/                  # Reference image directory
+└── Example.pdf             # Example report
 ```
 
-### ⚙️ ملف الإعدادات (config.json)
+---
 
-| الإعداد | الوصف | القيمة الافتراضية |
-|---------|-------|-------------------|
-| `SLEEP_DELAY` | التأخير بين الطلبات (ثواني) | 5 |
-| `GOOGLE_IMG_PAGES` | عدد صفحات بحث قوقل | 3 |
-| `JITTERS` | دقة التعرف على الوجوه | 10 |
-| `INSTA_VALIDATION_MAX_IMAGES` | حد صور التحقق من انستقرام | 12 |
-| `WEBDRIVER.ENGINE` | محرك المتصفح | firefox |
+## 📊 Reports
 
-### 📊 التقارير
+The tool can generate professional reports containing:
 
-الأداة تنشئ تقارير احترافية تحتوي على:
-- روابط الحسابات المكتشفة
-- تنبؤات قوقل
-- حسابات انستقرام المتحقق منها
-- متاحة بصيغة **PDF** و **JSON**
+* Discovered account links
+* Google prediction results
+* Verified Instagram accounts
+* Face matching results
+
+Supported export formats:
+
+* **PDF**
+* **JSON**
 
 ---
 
-## English
+## ⚠️ Legal Disclaimer
 
-### 📋 Overview
-
-**FaceTracker Pro** is an advanced OSINT (Open Source Intelligence) tool that uses facial recognition and reverse image search to find social media accounts.
-
-### ✨ Features
-
-- 🔎 **Image Search**: Upload a person's photo to find their social media accounts
-- 👤 **Name Search**: Enter a person's name to search for their profiles
-- 📸 **Instagram**: Search and validate Instagram profiles
-- 📘 **Facebook**: Search Facebook profiles with face matching
-- 🐦 **Twitter/X**: Search Twitter accounts
-- 🎥 **YouTube**: Search YouTube channels
-- 🔄 **Reverse Search**: Google Reverse Image Search integration
-- 🧠 **Face Recognition**: Smart face matching using face_recognition library
-- 📊 **Professional Reports**: Generate PDF and JSON reports
-- 🐳 **Docker Support**: Full Docker support
-
-### 🚀 Quick Start
-
-```bash
-git clone https://github.com/waleedshamhan2050-sys/FaceTracker-Pro.git
-cd FaceTracker-Pro
-pip3 install -r requirements.txt
-python3 facetracker.py
-```
-
-### 📖 Usage
-
-```bash
-# Basic search
-python3 facetracker.py
-
-# Skip Facebook search
-python3 facetracker.py --skipfb
-
-# Generate JSON report
-python3 facetracker.py --json output.json
-
-# Docker mode
-python3 facetracker.py --docker --name "Person Name"
-```
-
-### 🔧 Configuration
-
-Edit `config.json` to customize:
-- Search depth and delay
-- WebDriver settings
-- Face recognition sensitivity
-- Platform-specific filters
+> This tool is intended strictly for educational and research purposes only.
+>
+> Users are solely responsible for ensuring their use complies with applicable laws, regulations, and ethical guidelines.
+>
+> Do not use this tool to violate privacy, harass individuals, or perform unauthorized surveillance or data collection.
 
 ---
 
-### ⚠️ تنبيه قانوني | Legal Disclaimer
+## 👨‍💻 Developer
 
-> هذه الأداة مخصصة للأغراض التعليمية والبحثية فقط. المستخدم مسؤول عن الاستخدام القانوني والأخلاقي للأداة. لا تستخدم هذه الأداة لانتهاك خصوصية الآخرين.
+**Waleed Shamhan** — Full Stack Developer & Security Researcher
 
-> This tool is intended for educational and research purposes only. The user is responsible for legal and ethical use. Do not use this tool to violate others' privacy.
-
----
-
-### 👨‍💻 المطور | Developer
-
-**Waleed Shamhan** - Full Stack Developer & Security Researcher
-
-- 💼 [LinkedIn](https://linkedin.com/in/waleed-shamhan-b33a41301)
-- 💻 [GitHub](https://github.com/waleedshamhan2050-sys)
-- 📢 [Telegram](https://t.me/Programmer_sitting2026)
+* LinkedIn: [https://linkedin.com/in/waleed-shamhan-b33a41301](https://linkedin.com/in/waleed-shamhan-b33a41301)
+* GitHub: [https://github.com/waleedshamhan2050-sys](https://github.com/waleedshamhan2050-sys)
+* Telegram: [https://t.me/Programmer_sitting2026](https://t.me/Programmer_sitting2026)
 
 ---
 
-### 📄 الرخصة | License
+## 📄 License
 
-هذا المشروع مرخص تحت رخصة MIT - انظر ملف [LICENSE](LICENSE) للتفاصيل.
+This project is licensed under the MIT License.
+
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
 <div align="center">
 
-⭐ **إذا أعجبك المشروع، لا تنسى تحط نجمة!** ⭐
+⭐ If you found this project useful, consider giving it a star! ⭐
 
 </div>
+```
